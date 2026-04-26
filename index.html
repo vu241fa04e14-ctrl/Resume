@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thatikonda Kedhar Portfolio | Full Stack Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Portfolio of a passionate Full Stack Developer. Discover my projects, skills, and experience in building modern web applications.">
+</head>
+<body>
+
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Kedhar.dev</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span>Kedhar</span></h1>
+                    <p>I build <span>premium digital experiences</span> with clean code and modern aesthetics. Specialized in full-stack web development.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn" style="background: rgba(255,255,255,0.05); color: white; margin-left: 1rem;">Let's Connect</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="hero-image">
+                        <img src="assets/profile.jpg" alt="Thatikonda Kedhar Profile" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <i data-lucide="code-2" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3>Development</h3>
+                        <p>Building high-performance, scalable web applications with the latest technology stacks.</p>
+                    </div>
+                    <div class="card">
+                        <i data-lucide="layout" style="color: var(--secondary); margin-bottom: 1rem;"></i>
+                        <h3>Design</h3>
+                        <p>Creating user-centric UI/UX designs that are not only beautiful but also intuitive and fast.</p>
+                    </div>
+                    <div class="card">
+                        <i data-lucide="rocket" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h3>Fast Shipping</h3>
+                        <p>Efficient development workflow to bring ideas to life quickly without compromising quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My <span>Toolkit</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-pill">HTML5</div>
+                    <div class="skill-pill">CSS3</div>
+                    <div class="skill-pill">JavaScript (ES6+)</div>
+                    <div class="skill-pill">React.js</div>
+                    <div class="skill-pill">Node.js</div>
+                    <div class="skill-pill">Express</div>
+                    <div class="skill-pill">MongoDB</div>
+                    <div class="skill-pill">SQL</div>
+                    <div class="skill-pill">Git</div>
+                    <div class="skill-pill">Figma</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Placeholder -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured <span>Work</span></h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" alt="ERP App" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3>Enterprise ERP</h3>
+                        <p>A complete management system for educational institutions.</p>
+                        <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: block; margin-top: 1rem;">View Details →</a>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="E-com App" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3>Vibe Store</h3>
+                        <p>Modern e-commerce platform with seamless checkout experience.</p>
+                        <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: block; margin-top: 1rem;">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contact-form">
+                    <!-- FREE API KEY: Replace 'YOUR_ACCESS_KEY_HERE' with your real key from web3forms.com -->
+                    <input type="hidden" name="access_key" value="34a90d4e-0443-456b-8c47-b8233ace4c57">
+                    
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    
+                    <!-- Success Redirect (Optional) -->
+                    <!-- <input type="hidden" name="redirect" value="https://web3forms.com/success"> -->
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Thatikonda Kedhar Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
