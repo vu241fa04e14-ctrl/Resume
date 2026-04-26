@@ -305,7 +305,7 @@ section {
 
 /* Contact Form Premium */
 .contact-form {
-    max-width: 700px;
+    max-width: 850px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -314,6 +314,11 @@ section {
     background: rgba(15, 23, 42, 0.4);
     border-radius: 24px;
     border: 1px solid var(--glass-border);
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
 }
 
 .form-group { width: 100%; }
@@ -442,4 +447,5 @@ input:focus, textarea:focus {
     .nav-links { display: none; }
     .section-title { font-size: 2.5rem; }
     .contact-form { padding: 1.5rem; }
+    .form-row { flex-direction: column; }
 }
