@@ -1,0 +1,99 @@
+// Scroll Reveal Animation
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.card, .section-title, .hero-content, .hero-image').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(40px)';
+    el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    observer.observe(el);
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Parallax effect for blobs
+window.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+
+    const blobs = document.querySelectorAll('.bg-blob');
+    blobs.forEach((blob, index) => {
+        const speed = (index + 1) * 20;
+        const x = (mouseX - 0.5) * speed;
+        const y = (mouseY - 0.5) * speed;
+        blob.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+
+// Contact Form submission with Fetch API
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const button = contactForm.querySelector('button');
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const originalText = button.textContent;
+        button.textContent = 'Sending...';
+        button.disabled = true;
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+
+            const result = await response.json();
+            
+            if (response.status === 200) {
+                button.textContent = 'Message Sent! ✨';
+                button.style.backgroundColor = '#10b981'; // Green success
+                contactForm.reset();
+            } else {
+                console.log(result);
+                button.textContent = 'Error sending';
+                button.style.backgroundColor = '#f43f5e'; // Red error
+            }
+
+        } catch (error) {
+            console.error(error);
+            button.textContent = 'Network error';
+        } finally {
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = 'var(--primary)';
+                button.disabled = false;
+            }, 3000);
+        }
+    });
+}
