@@ -59,41 +59,44 @@ if (contactForm) {
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
 
-        const originalText = button.textContent;
         button.textContent = 'Sending...';
         button.disabled = true;
+        const status = document.getElementById('form-status');
         
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
+                body: formData
             });
 
             const result = await response.json();
             
-            if (response.status === 200) {
-                button.textContent = 'Message Sent! ✨';
-                button.style.backgroundColor = '#10b981'; // Green success
+            if (result.success) {
+                status.textContent = 'Message Sent Successfully! ✨';
+                status.className = 'form-status success';
+                button.textContent = 'Message Sent!';
+                button.style.backgroundColor = '#10b981';
                 contactForm.reset();
             } else {
                 console.log(result);
+                status.textContent = 'Error: ' + result.message;
+                status.className = 'form-status error';
                 button.textContent = 'Error sending';
-                button.style.backgroundColor = '#f43f5e'; // Red error
             }
 
         } catch (error) {
             console.error(error);
+            status.textContent = 'Network error. Please try again.';
+            status.className = 'form-status error';
             button.textContent = 'Network error';
         } finally {
+            status.style.display = 'block';
             setTimeout(() => {
                 button.textContent = originalText;
                 button.style.backgroundColor = 'var(--primary)';
                 button.disabled = false;
-            }, 3000);
+                status.style.display = 'none';
+            }, 5000);
         }
     });
 }
