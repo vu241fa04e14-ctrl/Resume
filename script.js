@@ -1,4 +1,21 @@
-// Scroll Reveal Animation
+// Scroll to Top Logic
+const scrollTopBtn = document.getElementById('scroll-top');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Improved Scroll Reveal Animation
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -14,7 +31,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.card, .section-title, .hero-content, .hero-image').forEach(el => {
+document.querySelectorAll('.card, .section-title, .hero-content, .hero-image, .skill-pill').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(40px)';
     el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
