@@ -305,7 +305,7 @@ section {
 
 /* Contact Form Premium */
 .contact-form {
-    max-width: 850px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -318,10 +318,10 @@ section {
 
 .form-row {
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem;
 }
 
-.form-group { width: 100%; }
+.form-group { flex: 1; }
 
 input, textarea {
     width: 100%;
